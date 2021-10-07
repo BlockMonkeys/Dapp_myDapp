@@ -1,4 +1,3 @@
 # Dapp First Dapp Project
 
-## Using , 
-### Nodejs & React & Truffle & ETH Geth Network & IPFS
+## Used.. Nodejs & React & Truffle & ETH Geth Network & IPFS

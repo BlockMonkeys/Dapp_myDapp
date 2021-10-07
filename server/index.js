@@ -5,33 +5,17 @@ const PORT = 5000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 
 //Legacy Config
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.use("/static", express.static(__dirname + "/assets"));
+app.use(fileUpload());
 
-//Web3 Config
-const web3 = require("./web3");
-const StudentContract = new web3.eth.Contract(JSON.parse(process.env.ContractABI), process.env.ContractAddress);
-
-
-app.get("/", (req, res)=> {
-    // web3.eth.getAccounts().then(user => {
-    //     console.log(user[0]);
-    //     StudentContract.methods.setStudentInfo(2, "Minseo", 24).send({"from": user[0] })
-    //         .then(result => {
-    //             console.log(result);
-    //         });
-    // });
-    console.log(typeof process.env.ContractAddress);
-    console.log(typeof JSON.parse(process.env.ContractABI));
-    StudentContract.methods.getStudentInfo(2).call()
-        .then(result => {
-            console.log(result);
-        })
-    
-    res.send("Success!");
-});
+//Routing
+app.use("/api/blockchain", require("./router/blockchain"));
 
 app.listen(PORT, ()=> console.log(`✅ Server is Running At : ${PORT}`));

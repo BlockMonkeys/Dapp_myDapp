@@ -18,6 +18,14 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "form-data": "^2.3.3",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "ipfs-api": "^26.1.2",
+    "ipfs-core": "^0.11.1",
+    "ipfs-http-client": "^53.0.1",
+    "mime-types": "^2.1.32",
     "web3": "^1.5.3"
   }
 }

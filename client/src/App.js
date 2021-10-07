@@ -1,9 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import LandingComponent from "./components/Landing/Landing";
+import LoginComponent from "./components/Login/Login";
 function App() {
   return (
     <div className="App">
+      <Switch>
+        <Route exact path="/" component={LandingComponent} />
+        <Route exact path="/login" component={LoginComponent} />
+      </Switch>
       {/* 
         1. 라우팅만들기;
         2. 홈페이지 만들기;
